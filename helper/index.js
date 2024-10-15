@@ -8,8 +8,9 @@ export function addTokenToHeader({ headers }) {
     return headers;
 }
 
-export function handleApiResponse(res) {
-    switch (res.response.status) {
+export function handleApiResponse(res) {  
+    console.log(res);
+    switch (res.status) {
         case 401:
             localStorage.removeItem("token");
             alert("You're logged out");
@@ -20,9 +21,9 @@ export function handleApiResponse(res) {
             return null;
         case 201:
             alert("Registered successfully");
-            return res.data;
+            return res;
         case 200:
-            return res.data;
+            return res;
         case 500:
             alert("Something went wrong");
             return null;
@@ -31,6 +32,32 @@ export function handleApiResponse(res) {
             break;
     }
 }
+// export function handleApiResponse(res) {
+//     const status = res.status || (res.response && res.response.status); // Fallback to res.response.status in case of an error
+    
+//     switch (status) {
+//         case 401:
+//             localStorage.removeItem("token");
+//             alert("You're logged out");
+//             window.location.href = "/login";
+//             return null;
+//         case 400:
+//             alert("Invalid email or password");
+//             return null;
+//         case 201:
+//             alert("Registered successfully");
+//             return res.data;
+//         case 200:
+//             return res.data;
+//         case 500:
+//             alert("Something went wrong");
+//             return null;
+//         default:
+//             alert("Something went wrong");
+//             return null;
+//     }
+// }
+
 
 export function isEditable(id) {
     const token = localStorage.getItem("token");

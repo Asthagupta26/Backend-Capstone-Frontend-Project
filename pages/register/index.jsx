@@ -92,8 +92,9 @@ const navigate = useNavigate();
       }
     })
     if(!isError){
-    const res=await  register(formData );
-    if(res.status === 200){
+    const res=await  register(formData);
+    console.log(res)
+    if(res.status === 201){
       alert("Registered successfully")
       navigate("/login");
     }
