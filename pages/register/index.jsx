@@ -2,6 +2,8 @@ import Form from "../../components/form";
 import { useState } from "react";
 import {register } from "../../services/auth";
 import { useNavigate } from "react-router-dom";
+import styles from "./Register.module.css";
+
 
 export default function Register() {
 const navigate = useNavigate();
@@ -150,7 +152,8 @@ const navigate = useNavigate();
 
   return (
     <>
-      <p>Register</p>
+    <div className={styles.registerContainer}>
+    <p>Register</p>
       <Form
 
       error={error}
@@ -158,6 +161,9 @@ const navigate = useNavigate();
         onSubmit={onSubmit}
         errorMessages={errorMessages}
       />
+
+    </div>
+      
     </>
   );
 }
