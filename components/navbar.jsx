@@ -19,6 +19,3 @@ export default function Navbar() {
     )
 }
 
-// 1. Make this a layout
-// 2. Add search bar, filter 
-// 3. Add edit and create job

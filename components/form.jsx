@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 function FormField({ name, type, placeholder, value, onChange, label, values, options, chosen }) {
   return (
       <>{type === "dropdown" ? <select value={value} onChange={onChange} name={name}>
